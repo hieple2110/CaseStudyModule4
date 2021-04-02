@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/home-page-layout::head">
+
+</head>
+<body class="animsition">
+
+<!-- Header -->
+<th:block th:replace="home-page-layout::header-shop"/>
+
+<!-- Cart -->
+<th:block th:replace="/home-page-layout::cart"/>
+
+<!-- Product -->
+<!-- breadcrumb -->
+<div class="container">
+    <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
+        <a href="index.html" class="stext-109 cl8 hov-cl1 trans-04">
+            Home
+            <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+        </a>
+
+        <span class="stext-109 cl4">
+				Shoping Cart
+			</span>
+    </div>
+</div>
+
+
+<!-- Shoping Cart -->
+<div align="center">
+    <div>
+        <img style="height: 25rem;" src="https://media.istockphoto.com/vectors/tick-icon-vector-symbol-vector-id971623860?k=6&m=971623860&s=612x612&w=0&h=WIkXzhiOjBk6YqWGIbzo-_ttLKbDnK0y2GsYGfGEVAA=">
+    </div>
+    <div>
+        <h2>Mua sắm thành công</h2>
+    </div>
+    <div style="padding-top: 2rem;">
+        <h4>Cảm ơn sự ủng hộ của bạn, chúc bạn mua sắm vui vẻ !!</h4>
+    </div>
+    <div style="padding-top: 2rem;">
+        <a th:href="@{/shop-me/shop}">
+                Mua sắm tiếp nào !
+        </a>
+        <a th:href="@{/shop-me/home}">
+            Ghé thăm chúng tôi..
+        </a>
+    </div>
+
+</div>
+
+<!-- Footer -->
+<th:block th:replace="/home-page-layout::footer"/>
+
+<!-- Back to top -->
+<div class="btn-back-to-top" id="myBtn">
+      <span class="symbol-btn-back-to-top">
+        <i class="zmdi zmdi-chevron-up"></i>
+      </span>
+</div>
+
+<th:block th:replace="/home-page-layout::block-script"/>
+
+</body>
+</html>

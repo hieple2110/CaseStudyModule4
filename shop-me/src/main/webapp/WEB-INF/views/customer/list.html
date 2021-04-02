@@ -41,7 +41,6 @@
                                         <th>Email</th>
                                         <th>Address</th>
                                         <th>Phone Number</th>
-                                        <th>Province</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
@@ -51,7 +50,7 @@
                                         <td th:text="${list.email}"></td>
                                         <td th:text="${list.address}"></td>
                                         <td th:text="${list.phoneNumber}"></td>
-                                        <td th:text="${list.province.provinceName}"></td>
+<!--                                        <td th:text="${list.province.provinceName}"></td>-->
                                         <td>
                                             <div class="table-data-feature">
                                                 <a th:href="@{/customer/{id}/view(id=${list.id})}">

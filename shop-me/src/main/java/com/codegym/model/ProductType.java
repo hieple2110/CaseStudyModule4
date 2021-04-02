@@ -45,7 +45,7 @@ public class ProductType implements Validator {
         String nameTypeProduct = productType.getTypeName();
 
         ValidationUtils.rejectIfEmpty(errors, "typeName", "nameTypeProduct.empty");
-        if (nameTypeProduct.length() > 30 || nameTypeProduct.length() < 5) {
+        if (nameTypeProduct.length() > 30 || nameTypeProduct.length() < 2) {
             errors.rejectValue("typeName", "nameTypeProduct.length");
         }
     }

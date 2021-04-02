@@ -23,20 +23,17 @@ public class OrderDetail implements Serializable {
     @Where(clause = "delete=false")
     private boolean isDelete = false;
 
-    private String status;
-
     @ManyToOne
     @JoinColumn(name = "idOrder")
     private Order order;
 
-
-    public OrderDetail() {
-    }
-    public OrderDetail(Integer id, Product product, Integer quantity, double priceOder, String status) {
-        this.id = id;
-        this.product = product;
-        this.quantity = quantity;
-        this.priceOder = priceOder;
-        this.status = status;
+    @Override
+    public String toString() {
+        return "OrderDetail{" +
+                "id=" + id +
+                ", quantity=" + quantity +
+                ", priceOder=" + priceOder +
+                ", isDelete=" + isDelete +
+                '}';
     }
 }

@@ -41,23 +41,23 @@ public class CustomerController {
         return mav;
     }
 
-    @GetMapping("/createCustomer")
-    public ModelAndView formCreateCustomer() {
-        ModelAndView mav = new ModelAndView("customer/create");
-        mav.addObject("customer", new Customer());
-        return mav;
-    }
-
-    @PostMapping("/saveCustomer")
-    public String saveCustomer(@Valid @ModelAttribute("customer") Customer customer, BindingResult bindingResult, Model model) throws SQLException {
-        new Customer().validate(customer, bindingResult);
-        if (bindingResult.hasFieldErrors()) {
-            return "customer/create";
-        }
-        model.addAttribute("message",   customerService.insert(customer));
-        model.addAttribute("customer", new Customer());
-        return "customer/create";
-    }
+//    @GetMapping("/createCustomer")
+//    public ModelAndView formCreateCustomer() {
+//        ModelAndView mav = new ModelAndView("home-page/listShowCart");
+//        mav.addObject("customer", new Customer());
+//        return mav;
+//    }
+//
+//    @PostMapping("/saveCustomer")
+//    public String saveCustomer(@Valid @ModelAttribute("customer") Customer customer, BindingResult bindingResult, Model model) throws SQLException {
+//        new Customer().validate(customer, bindingResult);
+//        if (bindingResult.hasFieldErrors()) {
+//            return "home-page/listShowCart";
+//        }
+//        model.addAttribute("message",   customerService.insert(customer));
+//        model.addAttribute("customer", new Customer());
+//        return "home-page/listShowCart";
+//    }
 
     @GetMapping("/{id}/edit")
     public ModelAndView formEditCustomer(@PathVariable(value = "id") Integer id) throws SQLException {

@@ -60,7 +60,7 @@ public class CustomerServiceImpl extends ValidateService implements CustomerServ
 
         if (listError.size() == 1 && listError.get(0).equals("Thành công")) {
             if (checkDuplicate(customer)) {
-                listError.set(0, "Đã tồn tại Thí sinh này");
+                listError.set(0, "Đã tồn tại khách hàng này");
             } else {
                 this.customerRepository.save(customer);
             }

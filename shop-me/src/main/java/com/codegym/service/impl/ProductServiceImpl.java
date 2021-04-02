@@ -1,10 +1,13 @@
 package com.codegym.service.impl;
 
+import com.codegym.model.Order;
 import com.codegym.model.Product;
 import com.codegym.model.ProductType;
 import com.codegym.repository.ProductRepository;
 import com.codegym.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
@@ -29,6 +32,11 @@ public class ProductServiceImpl extends ValidateService implements ProductServic
             listError.add("Thành công");
         }
         return listError;
+    }
+
+    @Override
+    public Page<Product> findAllByIsDeleteIsFalse(Pageable pageable) {
+        return productRepository.findAllByIsDeleteIsFalse(pageable);
     }
 
 
@@ -103,4 +111,20 @@ public class ProductServiceImpl extends ValidateService implements ProductServic
         }
         return false;
     }
+
+    @Override
+    public Page<Product> findAllByProductTypeIdAndIsDeleteIsFalseOrderByPublishDateDesc(Integer id, Pageable pageable) {
+        return productRepository.findAllByProductTypeIdAndIsDeleteIsFalseOrderByPublishDateDesc(id, pageable);
+    }
+
+    @Override
+    public Page<Product> findAll(Pageable pageable) {
+        return productRepository.findAll(pageable);
+    }
+
+    @Override
+    public List<Product> findTop8Random() {
+        return productRepository.findTop8Random();
+    }
+
 }

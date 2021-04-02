@@ -1,6 +1,7 @@
 package com.codegym.service.impl;
 
 import com.codegym.model.Order;
+import com.codegym.model.Product;
 import com.codegym.repository.OrderRepository;
 import com.codegym.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,18 +16,14 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private OrderRepository orderRepository;
 
+
     @Override
     public List<Order> findAllByIsDeleteIsFalse() {
-        return (List<Order>) orderRepository.findAll();
+        return orderRepository.findAllByIsDeleteIsFalse();
     }
 
     @Override
-    public Optional<Order> findById(Integer id) {
-        return orderRepository.findById(id);
-    }
-
-    @Override
-    public void saveOrUpdate(Order order) {
+    public void save(Order order) {
         orderRepository.save(order);
     }
 
@@ -34,4 +31,11 @@ public class OrderServiceImpl implements OrderService {
     public void remove(Integer id) {
         orderRepository.deleteById(id);
     }
+
+    @Override
+    public Optional<Order> findById(Integer id) {
+        return orderRepository.findById(id);
+    }
+
+
 }

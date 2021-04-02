@@ -63,4 +63,16 @@ public class Product implements Validator {
             errors.rejectValue("price", "priceP.length");
         }
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", publishDate=" + publishDate +
+                ", productName='" + productName + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", price=" + price +
+                ", isDelete=" + isDelete +
+                '}';
+    }
 }

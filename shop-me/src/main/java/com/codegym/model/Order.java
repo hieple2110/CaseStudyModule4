@@ -14,9 +14,12 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    private String status= "pending";
+
     @Where(clause = "delete=false")
     private boolean isDelete = false;
 
+    private double totalPrice;
     @ManyToOne
     @JoinColumn(name = "idCustomer")
     private Customer customer;
@@ -24,4 +27,13 @@ public class Order {
     @OneToMany(mappedBy = "order")
     private List<OrderDetail> orderDetails;
 
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", status='" + status + '\'' +
+                ", isDelete=" + isDelete +
+                ", totalPrice=" + totalPrice +
+                '}';
+    }
 }

@@ -126,6 +126,8 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
                 .addResourceLocations("/assets/").resourceChain(false);
         registry.addResourceHandler("/upload/**")
                 .addResourceLocations("/upload/").resourceChain(false);
+        registry.addResourceHandler("/uiAssets/**")
+                .addResourceLocations("/uiAssets/").resourceChain(false);
 
     }
     @Bean(name = "multipartResolver")
