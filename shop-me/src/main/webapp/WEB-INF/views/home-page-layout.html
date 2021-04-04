@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head th:fragment="head">
     <title>Home</title>
     <meta charset="UTF-8"/>
@@ -74,6 +75,7 @@
     <link rel="stylesheet" type="text/css" href="/uiAssets/css/util.css"/>
     <link rel="stylesheet" type="text/css" href="/uiAssets/css/main.css"/>
     <!--===============================================================================================-->
+
 </head>
 <body>
 <th:block th:fragment="header">
@@ -87,9 +89,14 @@
                 </div>
 
                 <div class="right-top-bar flex-w h-full">
+                    <th:block  sec:authorize="hasRole('ROLE_ADMIN')">
+                        <a th:href="@{/product/listProduct}" class="flex-c-m trans-04 p-lr-25">
+                            Manager Shop
+                        </a>
+                    </th:block>
                     <a href="#" class="flex-c-m trans-04 p-lr-25"> Help & FAQs </a>
 
-                    <a href="#" class="flex-c-m trans-04 p-lr-25"> My Account </a>
+                    <a th:href="@{/login}" class="flex-c-m trans-04 p-lr-25"> Login </a>
 
                     <a href="#" class="flex-c-m trans-04 p-lr-25"> EN </a>
 
@@ -121,7 +128,7 @@
                         </li>
 
                         <li>
-                            <a href="blog.html">Blog</a>
+                            <a th:href="@{/shop-me/blog}">Blog</a>
                         </li>
 
                         <li>
@@ -199,9 +206,14 @@
 
             <li>
                 <div class="right-top-bar flex-w h-full">
+                    <th:block  sec:authorize="hasRole('ROLE_ADMIN')">
+                        <a th:href="@{/product/listProduct}" class="flex-c-m trans-04 p-lr-25">
+                            Manager Shop
+                        </a>
+                    </th:block>
                     <a href="#" class="flex-c-m p-lr-10 trans-04"> Help & FAQs </a>
 
-                    <a href="#" class="flex-c-m p-lr-10 trans-04"> My Account </a>
+                    <a th:href="@{/login}" class="flex-c-m p-lr-10 trans-04"> Login </a>
 
                     <a href="#" class="flex-c-m p-lr-10 trans-04"> EN </a>
 
@@ -227,8 +239,9 @@
             </li>
 
             <li>
-                <a href="blog.html">Blog</a>
+                <a th:href="@{/shop-me/blog}">Blog</a>
             </li>
+
 
             <li>
                 <a href="about.html">About</a>
@@ -273,12 +286,17 @@
                     </div>
 
                     <div class="right-top-bar flex-w h-full">
+                        <th:block  sec:authorize="hasRole('ROLE_ADMIN')">
+                            <a th:href="@{/product/listProduct}" class="flex-c-m trans-04 p-lr-25">
+                                Manager Shop
+                            </a>
+                        </th:block>
                         <a href="#" class="flex-c-m trans-04 p-lr-25">
                             Help & FAQs
                         </a>
 
-                        <a href="#" class="flex-c-m trans-04 p-lr-25">
-                            My Account
+                        <a th:href="@{/login}" class="flex-c-m trans-04 p-lr-25">
+                            Login
                         </a>
 
                         <a href="#" class="flex-c-m trans-04 p-lr-25">
@@ -316,8 +334,9 @@
                             </li>
 
                             <li>
-                                <a href="blog.html">Blog</a>
+                                <a th:href="@{/shop-me/blog}">Blog</a>
                             </li>
+
 
                             <li>
                                 <a href="about.html">About</a>
@@ -389,12 +408,17 @@
 
                 <li>
                     <div class="right-top-bar flex-w h-full">
+                        <th:block  sec:authorize="hasRole('ROLE_ADMIN')">
+                            <a th:href="@{/product/listProduct}" class="flex-c-m trans-04 p-lr-25">
+                                Manager Shop
+                            </a>
+                        </th:block>
                         <a href="#" class="flex-c-m p-lr-10 trans-04">
                             Help & FAQs
                         </a>
 
-                        <a href="#" class="flex-c-m p-lr-10 trans-04">
-                            My Account
+                        <a th:href="@{/login}" class="flex-c-m p-lr-10 trans-04">
+                            Login
                         </a>
 
                         <a href="#" class="flex-c-m p-lr-10 trans-04">
@@ -421,8 +445,9 @@
                 </li>
 
                 <li>
-                    <a th:href="@{/shop-me/showCart}">Cart</a>
+                    <a th:href="@{/shop-me/blog}">Blog</a>
                 </li>
+
 
                 <li>
                     <a href="blog.html">Blog</a>

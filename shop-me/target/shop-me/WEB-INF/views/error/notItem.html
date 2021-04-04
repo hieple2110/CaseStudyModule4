@@ -18,20 +18,24 @@
         <div class="main-content">
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
-                    <div>
-                        <a th:href="@{/province/listProvince}">
-                            <button type="button" class="btn btn-primary">
-                                Back to list Province
-                            </button>
-                        </a>
-                    </div>
+                        <div class="dropdown">
+                            <button class="dropbtn">Come back to List</button>
+                            <div class="dropdown-content">
+                                <a th:href="@{/customer/listCustomer}">List Customer</a>
+                                <a th:href="@{/province/listProvince}">List  Province</a>
+                                <a th:href="@{/order/listOrder}">List  Order</a>
+                                <a th:href="@{/product/listProduct}">List  Product</a>
+                                <a th:href="@{/productType/listProductType}">List  Product Type</a>
+                            </div>
+                        </div>
                     <div class="row">
                         <h3 style="margin-top: 3rem;margin-left: 1rem;">
                             There is no object in the list</h3>
                     </div>
                     <div align="center">
                         <img style="width: 35rem;
-    border-radius: 2rem;" src="https://steamuserimages-a.akamaihd.net/ugc/539646410283684592/1DBAC50CF76327B305BF2FEE5113E89DC5D8BFDE/">
+    border-radius: 2rem;"
+                             src="https://steamuserimages-a.akamaihd.net/ugc/539646410283684592/1DBAC50CF76327B305BF2FEE5113E89DC5D8BFDE/">
                     </div>
 
                 </div>

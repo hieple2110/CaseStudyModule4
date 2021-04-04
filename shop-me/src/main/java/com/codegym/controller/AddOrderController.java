@@ -178,36 +178,24 @@ public class AddOrderController {
     @PostMapping("/shop-me/showCart/saveCustomer")
     public String saveCustomer(@Valid @ModelAttribute("customer") Customer customer,
                                BindingResult bindingResult,
-                               HttpSession session
-    ) throws SQLException {
+                               HttpSession session) throws SQLException {
         new Customer().validate(customer, bindingResult);
         if (bindingResult.hasFieldErrors()) {
             return "home-page/listShowCart";
         }
-
-        // save thong tin khach hang
-
         customerService.insert(customer);
-        // loi order ve tu session
-
         Order order = (Order) session.getAttribute("order");
-        // nhet customer vo trong order
-
         order.setCustomer(customer);
-        // save lai order (kha nang: saveAll dong orderDetails
-
         List<OrderDetail> details = order.getOrderDetails();
-
         orderService.save(order);
-        for (OrderDetail detail : details){
+        for (OrderDetail detail : details) {
             detail.setOrder(order);
             orderDetailService.save(detail);
         }
-        // set order trong session ve null
         session.setAttribute("order", null);
-        // chuyen qua trang thanh toan thanh cong
-
 
         return "home-page/check-outSuccess";
     }
+
+
 }

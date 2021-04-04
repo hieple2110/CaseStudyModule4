@@ -1,6 +1,7 @@
 package com.codegym.service.impl;
 
 import com.codegym.model.Customer;
+import com.codegym.model.Order;
 import com.codegym.model.OrderDetail;
 import com.codegym.repository.OrderDetailRepository;
 import com.codegym.service.OrderDetailService;
@@ -27,12 +28,17 @@ public class OrderDetailServiceImpl extends ValidateService implements OrderDeta
 
     @Override
     public void remove(Integer id) {
-orderDetailRepository.deleteById(id);
+        orderDetailRepository.deleteById(id);
     }
 
     @Override
     public Optional<OrderDetail> findById(Integer id) {
         return orderDetailRepository.findById(id);
+    }
+
+    @Override
+    public List<OrderDetail> findAllByOrderDetail(Order order) {
+        return orderDetailRepository.findAllByOrderDetail(order);
     }
 
 

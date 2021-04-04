@@ -127,4 +127,9 @@ public class ProductServiceImpl extends ValidateService implements ProductServic
         return productRepository.findTop8Random();
     }
 
+    @Override
+    public List<Product> findTop3ByOrderByIdDesc() {
+        return productRepository.findTop3ByOrderByIdDesc();
+    }
+
 }

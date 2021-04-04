@@ -104,7 +104,7 @@ public class ProductController {
     }
 
     @PostMapping("/editProduct")
-    public String editPostProduct(HttpServletRequest request, @ModelAttribute("product") Product product,Model model) throws Exception {
+    public String editProduct(HttpServletRequest request, @ModelAttribute("product") Product product,Model model) throws Exception {
         String uploadRootPath = request.getServletContext().getRealPath("upload");
         File uploadRootDir = new File(uploadRootPath);
         String uploadLocalPath = "D:\\Hoc Tap\\Module 4\\CaseStudyM4\\shop-me\\src\\main\\webapp\\upload";

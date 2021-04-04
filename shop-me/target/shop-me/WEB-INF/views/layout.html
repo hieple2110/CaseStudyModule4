@@ -33,7 +33,7 @@
 
     <!-- Main CSS-->
     <link th:href="@{/assets/css/theme.css}" rel="stylesheet" media="all">
-
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 </head>
 
 <body class="animsition">
@@ -98,6 +98,14 @@
                     <li class="has-sub">
                         <a class="js-arrow" th:href="@{/productType/listProductType}">
                             <i class="fas fa-tachometer-alt"></i>Manager ProductType</a>
+                    </li>
+                    <li class="has-sub">
+                        <a class="js-arrow" th:href="@{/category/listCategory}">
+                            <i class="fas fa-tachometer-alt"></i>Manager Category</a>
+                    </li>
+                    <li class="has-sub">
+                        <a class="js-arrow" th:href="@{/posts/listPosts}">
+                            <i class="fas fa-tachometer-alt"></i>Manager Posts</a>
                     </li>
 
                 </ul>

@@ -38,5 +38,7 @@ public interface ProductService {
 
     List<Product> findTop8Random();
 
+    List<Product> findTop3ByOrderByIdDesc();
+
 
 }

@@ -1,13 +1,10 @@
 package com.codegym.controller;
 
-import com.codegym.model.Customer;
-import com.codegym.model.Order;
+import com.codegym.model.*;
 
-import com.codegym.model.Product;
-
-import com.codegym.model.Province;
 import com.codegym.service.impl.CustomerServiceImpl;
 
+import com.codegym.service.impl.OrderDetailServiceImpl;
 import com.codegym.service.impl.OrderServiceImpl;
 import com.codegym.service.impl.ProductServiceImpl;
 
@@ -29,6 +26,9 @@ public class OrderController {
 
     @Autowired
     private OrderServiceImpl orderService;
+
+    @Autowired
+    private OrderDetailServiceImpl orderDetailService;
 
     @Autowired
     private CustomerServiceImpl customerService;
@@ -104,6 +104,22 @@ public class OrderController {
         return "redirect:/order/listOrder";
     }
 
-
+    @GetMapping("/{id}/view")
+    public ModelAndView viewOrderDetail(@PathVariable(value = "id") Integer id) {
+        Optional<Order> order = orderService.findById(id);
+        ModelAndView mav;
+        if (order == null) {
+            mav = new ModelAndView("error/errorId");
+        } else {
+            List<OrderDetail> detailList = orderDetailService.findAllByOrderDetail(order.get());
+            if (detailList.size() <= 0) {
+                mav = new ModelAndView("error/notItem");
+            } else {
+                mav = new ModelAndView("order/view");
+                mav.addObject("detailList", detailList);
+            }
+        }
+        return mav;
+    }
 
 }

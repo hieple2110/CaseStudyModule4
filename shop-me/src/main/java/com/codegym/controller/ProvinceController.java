@@ -23,6 +23,7 @@ public class ProvinceController {
 
     @Autowired
     private ProvinceServiceImpl provinceService;
+
     @Autowired
     private CustomerServiceImpl customerService;
 

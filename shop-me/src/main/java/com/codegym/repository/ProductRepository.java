@@ -21,5 +21,6 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     @Query(nativeQuery = true, value = "SELECT * FROM products where isDelete = 0 ORDER BY rand() LIMIT 8 ")
     List<Product> findTop8Random();
 
+    List<Product> findTop3ByOrderByIdDesc();
 
 }

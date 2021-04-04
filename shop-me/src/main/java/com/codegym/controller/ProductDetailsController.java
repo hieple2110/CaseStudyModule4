@@ -14,7 +14,7 @@ import java.sql.SQLException;
 
 @Controller
 @RequestMapping("/shop-me")
-public class ProductDetailsController {
+public class    ProductDetailsController {
 
     @Autowired
     private ProductServiceImpl productService;
