@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="layout::head"></head>
 
-<body>
+<body class="animsition">
 
 <div class="page-wrapper">
     <th:block th:replace="layout:: header-mobile"></th:block>
@@ -18,6 +18,9 @@
         <div class="main-content">
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
+                    <div class="row">
+                        <input type="hidden" th:value="${message}" id="mess">
+                    </div>
 
                     <div class="row">
                         <div style=" margin-bottom: 1rem;     margin-left: 1rem;" ;>
@@ -27,9 +30,9 @@
                                 </button>
                             </a>
                         </div>
-                        <div class="col-12 col-md-12" th:if="${message!=null}">
-                            <div class="alert alert-success"><i th:text="${message}"></i></div>
-                        </div>
+<!--                        <div class="col-12 col-md-12" th:if="${message!=null}">-->
+<!--                            <div class="alert alert-success"><i th:text="${message}"></i></div>-->
+<!--                        </div>-->
                         <di class="clear"></di>
                         <div class="col-md-12">
                             <!-- DATA TABLE -->
@@ -107,5 +110,12 @@
 
 
 <footer th:replace="layout::footer"></footer>
+
+<script>
+    const message = document.getElementById("mess").value;
+    if (message != "") {
+        toastr.success(message, 'mess');
+    }
+</script>
 </body>
 </html>

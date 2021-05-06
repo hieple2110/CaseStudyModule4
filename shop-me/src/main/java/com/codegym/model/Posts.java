@@ -20,7 +20,10 @@ public class Posts implements Validator {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String title;
+    @Column(columnDefinition = "varchar(1250)")
     private String shortContent;
+
+    @Column(columnDefinition = "longtext")
     private String fullContent;
     private LocalDateTime publishDate = LocalDateTime.now();
 

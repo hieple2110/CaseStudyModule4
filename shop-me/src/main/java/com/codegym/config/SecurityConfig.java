@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -27,11 +28,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http	.csrf().disable()
+        http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/product/**","/customer/**",
-                        "/posts/**","/order/**",
-                        "/category/**","/productType/**","/province/**").hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
+                .antMatchers("/product/**", "/customer/**",
+                        "/posts/**", "/order/**",
+                        "/category/**", "/productType/**", "/province/**").hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
                 .and()
                 .formLogin()
                 .loginPage("/login")
@@ -40,7 +41,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/shop-me/home", true)
                 .failureUrl("/login?error=true")
                 .and()
-                .exceptionHandling().accessDeniedPage("/Access_Denied");
+                .exceptionHandling().accessDeniedPage("/Access_Denied")
+                .and()
+                .logout()
+                .logoutUrl("/logout")
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"))
+                .clearAuthentication(true)
+                .invalidateHttpSession(true)
+                .deleteCookies("JSESSIONID", "remember-me")
+                .logoutSuccessUrl("/shop-me/home");
 
     }
 

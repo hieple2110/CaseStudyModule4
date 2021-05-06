@@ -2,8 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="layout::head"></head>
 
-<body>
-
+<body class="animsition">
 <div class="page-wrapper">
     <th:block th:replace="layout:: header-mobile"></th:block>
 
@@ -48,7 +47,7 @@
                                     <tbody>
                                     <tr class="tr-shadow" th:each="list : ${postsList}">
                                         <td>
-                                            <img style="height: 5rem;
+                                            <img style="height: 5rem;width: 5rem;
     border-radius: 10%" th:src="@{/upload/__${list.imageUrl}__}" alt="Images">
                                         </td>
                                         <td style="vertical-align: middle;" th:utext="${list.title}"></td>

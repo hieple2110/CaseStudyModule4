@@ -55,7 +55,7 @@ public class ProductServiceImpl extends ValidateService implements ProductServic
         ArrayList<String> listError = listResult(product);
         if (listError.size() == 1 && listError.get(0).equalsIgnoreCase("Thành công")) {
             if (checkDuplicate(product)) {
-                listError.set(0, "Tên Sản phẩm hoặc nhãn hiệu đã được đăng ký");
+                listError.set(0, "Lỗi: Tên Sản phẩm hoặc nhãn hiệu đã được đăng ký");
             } else {
                 this.productRepository.save(product);
             }
@@ -72,9 +72,9 @@ public class ProductServiceImpl extends ValidateService implements ProductServic
         Optional<Product> product1 = productRepository.findById(product.getId());
         if (listError.get(0).equalsIgnoreCase("Thành công")) {
             if (product1.get().getProductName().equals(product.getProductName())) {
-                listError.set(0, "Không thực hiện chỉnh sửa gì");
+                listError.set(0, "Lỗi: Không thực hiện chỉnh sửa gì");
             } else if (checkDuplicate(product)) {
-                listError.set(0, "Nội dung chỉnh sửa đã bị trùng");
+                listError.set(0, "Lỗi: Nội dung chỉnh sửa đã bị trùng");
             } else {
                 productRepository.save(product);
             }
